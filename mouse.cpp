@@ -59,10 +59,15 @@ char mean_mouse[16][35] = {
     std::string answer;
     std::getline(std::cin, answer);
 
-    if(answer == "yes" || answer == "Yes" || answer == "YES" || answer == "yES" || answer == "YEs" || answer == "YeS" || answer == "yEs" || answer == "yeS"){
-        std::cout << "You are spared...";
+
+    std::transform(answer.begin(), answer.end(), answer.begin(), ::tolower);        
+    // first begin specifies where to start reading char
+    // second begin is the destination where the transformed char will be written
+    // this way we dont have to tyoe out every possible way yes could be written
+    if(answer == "yes"){
+        std::cout << "You are spared..." << '\n';
         std::cout.flush();
-        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::this_thread::sleep_for(std::chrono::seconds(4));
         std::cout << "for now." << '\n';
     }
     else{
@@ -79,17 +84,31 @@ char mean_mouse[16][35] = {
 
         std::this_thread::sleep_for(std::chrono::seconds(3));
         std::cout << '\n' << '\n' << " FEAR ME FOR I AM COMING! ";
+    
+        std::cout << '\n';
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+
+        for(int i = 0; i < 16; i++){
+            std::cout << mean_mouse[i] << '\n';
+        }
+
+        std::cout.flush();
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::cout << '\n' << "HAHAHAHAHAH" << '\n';
+
+        std::cout.flush();
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::cout << '\n' << "HAHAHAahahaha" << '\n';
+
+        std::cout.flush();
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::cout << '\n' << "hah" << '\n';
+
+        std::cout.flush();
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::cout << '\n' << "goodbye, for now." << '\n' << '\n';
+
     }
-
-    std::this_thread::sleep_for(std::chrono::seconds(2));
-
-    for(int i = 0; i < 16; i++){
-        std::cout << mean_mouse[i] << '\n';
-    }
-
-    std::cout.flush();
-    std::cout << '\n' << "byebye HAHAHA";
-
 
     return 0;
 
